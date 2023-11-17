@@ -11,7 +11,7 @@ const CryptoContext = ({ children }) => {
   const [alert, setAlert] = useState({
     open: false,
     message: "",
-    type: "success"  
+    type: "success"
   })
   useEffect(() => {
     if (currency === "USD") setSymbol("$"); 
@@ -23,20 +23,12 @@ const CryptoContext = ({ children }) => {
     setLoading(true);
     try {
     const  data = await axios.get("http://localhost:3000/coin-list");
-     console.log('storm')
-     console.log(data)
-     setCoins(data.data.payload);
-     setLoading(false);
+      setCoins(data.data.payload);
+      setLoading(false);
     } catch(error) {
-       console.log(error)
+      console.log(error)
     }
   };
-
-  useEffect(() => {
-    if (currency === "USD") setSymbol("$"); 
-    else if (currency === "GBP") setSymbol("£");
-  }, [currency]); // run everytime currency changes
-
 
 
   return (
