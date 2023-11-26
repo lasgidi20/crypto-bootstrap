@@ -33,10 +33,15 @@ const  Carousel = () => {
     const [trending, setTrending] = useState([]);
     const { currency, symbol } = CryptoState();
     const fetchTrendingCoins = async () => {
-      const data = await axios.get("http://localhost:3000/trending-coins");
+      try {
+      const data = await axios.get("http://localhost:3000/api/trending-coins");
       console.log('is there payload data')
       console.log(data);
       setTrending(data.data.payload);
+      } catch(error) {
+        console.log(error)
+        return "still loading...."
+      }
     };
     console.log(trending)
 

@@ -44,14 +44,11 @@ import {
     const classes = useStyles();
     const { currency, setCurrency } = CryptoState();
     const navigate = useNavigate();
-      
-   console.log('does user exist')
-   console.log(props)
-   const LogoutUser = async () => {
+    const LogoutUser = async () => {
 
      try {
-      const token = localStorage.getItem(token)
-     const logged_out = await axios.delete("localhost:3000/logout",
+       const token = localStorage.getItem(token)
+       const logged_out = await axios.delete("localhost:3000/logout",
      {
       headers: {
         Authorization: token

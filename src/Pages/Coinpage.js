@@ -2,7 +2,6 @@ import { LinearProgress, makeStyles, Typography } from "@material-ui/core";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import ReactHtmlParser from "react-html-parser";
 import CoinInfo from "../components/CoinInfo";
 import { CategoryScale } from "chart.js";
 import { SingleCoin } from "../config/api";
@@ -16,12 +15,10 @@ const CoinPage = () => {
   const { currency, symbol } = CryptoState();
 
   const fetchCoin = async () => {
-    const data = await axios.get(`http://localhost:3000/coin/${id}`);
-    console.log(data.data.payload)
+    const data = await axios.get(`http://localhost:3000/api/coin/${id}`);
     setCoin(data.data.payload);
   };
-    console.log('visit')
-    console.log(coin)
+
   useEffect(() => {
     fetchCoin();
     // eslint-disable-next-line react-hooks/exhaustive-deps

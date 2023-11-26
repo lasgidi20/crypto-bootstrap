@@ -11,7 +11,6 @@ import {
 import SelectButton from "./SelectButton";
 import { chartDays } from "../config/data";
 import { CryptoState } from "../CryptoContext";
-//import { CategoryScale } from "chart.js";
 import { CategoryScale } from "chart.js";
 import { Chart as ChartJS } from "chart.js/auto";
 const CoinInfo = ({ coin }) => {
@@ -41,10 +40,7 @@ const CoinInfo = ({ coin }) => {
   const classes = useStyles();
 
   const fetchHistoricData = async () => {
-   // const { data: {payload}} = await axios.get("http://localhost:3000/history");
-   const data = await axios.get("http://localhost:3000/history");
-    console.log('history')
-    console.log(data)
+   const data = await axios.get("http://localhost:3000/api/history");
     setflag(true);
     setHistoricData(data.data.payload.prices);
   };
@@ -129,11 +125,5 @@ const CoinInfo = ({ coin }) => {
     </ThemeProvider>
   );
 };
-
 export default CoinInfo;
 
-
-// Introduce an AuthContext
-// inside the context, you can check if user is present in state
-// if no user, then check if jwt is in local storage, and send local storage to backend to validate user
-// if user, then render provider children

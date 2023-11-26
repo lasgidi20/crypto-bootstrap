@@ -19,7 +19,6 @@ const Register = () => {
     e.preventDefault();
     try {
        await axios.post('http://localhost:3000/signup', user);
-        console.log(user)
         navigate("/dashboard");
     } catch (error) {
         if (error.response) {

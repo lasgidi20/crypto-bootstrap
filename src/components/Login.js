@@ -19,10 +19,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data: {data}} = await axios.post('http://localhost:3000/login', user);
-       console.log(data)
        localStorage.setItem('token', data.jti)
-       console.log('first check')
-       console.log(data.jti)
        navigate('/articles')
     } catch (error) {
         if (error.response) {
@@ -46,5 +43,4 @@ const Login = () => {
   </form>
   )
 }
-
 export default Login

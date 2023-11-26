@@ -8,21 +8,19 @@ const Article = () => {
     console.log('best')
     console.log(token)
     if (token) {
-     const {data} = await axios.get("http://localhost:3000/articles", {
+     const {data} = await axios.get("http://localhost:3000/api/articles", {
         headers: {
             Authorization: token
         }  
      })
      setArticles(data)
-     console.log('articles data')
-     console.log(data)
     }
   }
-  console.log("CHECKING articles")
-   console.log(articles)
-   useEffect(() => {
-       fetcharticles()
-   }, [setArticles])
+
+  useEffect(() => {
+    fetcharticles()
+  }, [])
+
   return (
     <div>{articles.map((article) => {
     return (

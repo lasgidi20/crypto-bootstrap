@@ -22,8 +22,8 @@ const CryptoContext = ({ children }) => {
   const fetchCoins = async () => {
     setLoading(true);
     try {
-    const  data = await axios.get("http://localhost:3000/coin-list");
-      setCoins(data.data.payload);
+    const  data = await axios.get("http://localhost:3000/api/coin-list");
+    setCoins(data.data.payload);
       setLoading(false);
     } catch(error) {
       console.log(error)
